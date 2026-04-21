@@ -4,6 +4,7 @@
   </header>
   <main class="container">
     <MacroSummary />
+    <AddFoodForm />
   </main>
 </template>
 
@@ -11,6 +12,7 @@
 import { onMounted } from "vue";
 import { useFoodLogStore } from "./stores/foodLog";
 import MacroSummary from "./components/MacroSummary.vue";
+import AddFoodForm from "./components/AddFoodForm.vue";
 
 const store = useFoodLogStore();
 onMounted(() => store.loadFromStorage());
