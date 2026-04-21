@@ -1,0 +1,5 @@
+// init
+
+nodem_modules/
+dist/
+.DS_Store
