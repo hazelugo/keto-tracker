@@ -51,7 +51,7 @@ import { useFoodLogStore, formatDateLabel } from "../stores/foodLog";
 const store = useFoodLogStore();
 
 const MEALS = ["breakfast", "lunch", "dinner", "snack"];
-const MEAL_ICONS = { breakfast: "☀️", lunch: "🌤", dinner: "🌙", snack: "🍃" };
+const MEAL_ICONS = { breakfast: "", lunch: "", dinner: "", snack: "" };
 
 const logTitle = computed(() => {
   const label = formatDateLabel(store.currentDate);

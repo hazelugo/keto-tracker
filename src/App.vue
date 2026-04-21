@@ -1,6 +1,6 @@
 <template>
   <header>
-    <h1>🥑 Keto Tracker</h1>
+    <h1>Keto Tracker</h1>
     <div class="date-nav">
       <button @click="store.shiftDate(-1)">&#8592;</button>
       <span class="date-label">{{ dateLabel }}</span>
