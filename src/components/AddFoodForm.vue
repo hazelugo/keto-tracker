@@ -7,17 +7,17 @@
         <label for="sel-food">Food</label>
         <select id="sel-food" v-model="selectedFoodIdx" @change="onFoodChange">
           <option value="">Select food…</option>
-          <optgroup label="🥩 Proteins">
+          <optgroup label="Proteins">
             <option v-for="food in proteins" :key="food.idx" :value="food.idx">
               {{ food.name }}
             </option>
           </optgroup>
-          <optgroup label="🥦 Vegetables">
+          <optgroup label="Vegetables">
             <option v-for="food in veggies" :key="food.idx" :value="food.idx">
               {{ food.name }}
             </option>
           </optgroup>
-          <optgroup label="🥑 Fats">
+          <optgroup label="Fats">
             <option v-for="food in fats" :key="food.idx" :value="food.idx">
               {{ food.name }}
             </option>
