@@ -3,11 +3,18 @@
     <h1>🥑 Keto Tracker</h1>
   </header>
   <main class="container">
-    <p class="placeholder">Building your keto tracker...</p>
+    <MacroSummary />
   </main>
 </template>
 
-<script setup></script>
+<script setup>
+import { onMounted } from "vue";
+import { useFoodLogStore } from "./stores/foodLog";
+import MacroSummary from "./components/MacroSummary.vue";
+
+const store = useFoodLogStore();
+onMounted(() => store.loadFromStorage());
+</script>
 
 <style scoped>
 header {
@@ -24,10 +31,5 @@ header h1 {
   max-width: 620px;
   margin: 0 auto;
   padding: 16px;
-}
-.placeholder {
-  text-align: center;
-  color: #9ca3af;
-  padding: 40px 0;
 }
 </style>
