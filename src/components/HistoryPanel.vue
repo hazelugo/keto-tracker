@@ -1,7 +1,7 @@
 <template>
   <div>
     <button class="btn-history" @click="open = !open">
-      📅 {{ open ? 'Hide History' : 'View Past Days' }}
+      📅 {{ open ? "Hide History" : "View Past Days" }}
     </button>
 
     <transition name="slide">
@@ -15,12 +15,12 @@
           :key="date"
           class="history-day"
         >
-          <button
-            class="history-day-hdr"
-            @click="toggle(date)"
-          >
+          <button class="history-day-hdr" @click="toggle(date)">
             <span class="hd-date">{{ formatDateLabel(date) }}</span>
-            <span class="hd-sum" :class="{ over: store.totalsForDate(date).c > store.targets.c }">
+            <span
+              class="hd-sum"
+              :class="{ over: store.totalsForDate(date).c > store.targets.c }"
+            >
               {{ store.totalsForDate(date).cal }} cal ·
               {{ store.totalsForDate(date).p }}g P ·
               {{ store.totalsForDate(date).f }}g F ·
@@ -34,7 +34,10 @@
               :key="entry.id"
               class="hist-entry"
             >
-              <span>{{ mealIcon(entry.meal) }} {{ entry.food }} · {{ entry.grams }}g</span>
+              <span
+                >{{ mealIcon(entry.meal) }} {{ entry.food }} ·
+                {{ entry.grams }}g</span
+              >
               <span>{{ entry.cal }} cal</span>
             </div>
           </div>
@@ -45,25 +48,25 @@
 </template>
 
 <script setup>
-import { ref, reactive } from 'vue'
-import { useFoodLogStore, formatDateLabel } from '../stores/foodLog'
+import { ref, reactive } from "vue";
+import { useFoodLogStore, formatDateLabel } from "../stores/foodLog";
 
-const store = useFoodLogStore()
-const open  = ref(false)
-const expanded = reactive(new Set())
+const store = useFoodLogStore();
+const open = ref(false);
+const expanded = reactive(new Set());
 
-const MEAL_ICONS = { breakfast: '☀️', lunch: '🌤', dinner: '🌙', snack: '🍃' }
+const MEAL_ICONS = { breakfast: "", lunch: "", dinner: "", snack: "" };
 
 function mealIcon(meal) {
-  return MEAL_ICONS[meal] ?? ''
+  return MEAL_ICONS[meal] ?? "";
 }
 
 function toggle(date) {
-  expanded.has(date) ? expanded.delete(date) : expanded.add(date)
+  expanded.has(date) ? expanded.delete(date) : expanded.add(date);
 }
 
 function entriesForDate(date) {
-  return store.entries.filter((e) => e.date === date)
+  return store.entries.filter((e) => e.date === date);
 }
 </script>
 
@@ -81,9 +84,14 @@ function entriesForDate(date) {
   margin-bottom: 14px;
   transition: all 0.15s;
 }
-.btn-history:hover { background: #f0fdf4; border-color: #16a34a; }
+.btn-history:hover {
+  background: #f0fdf4;
+  border-color: #16a34a;
+}
 
-.history-section { margin-bottom: 16px; }
+.history-section {
+  margin-bottom: 16px;
+}
 
 .card.empty-history {
   background: white;
@@ -114,13 +122,26 @@ function entriesForDate(date) {
   text-align: left;
   transition: background 0.15s;
 }
-.history-day-hdr:hover { background: #f3f4f6; }
+.history-day-hdr:hover {
+  background: #f3f4f6;
+}
 
-.hd-date { font-size: 0.8rem; font-weight: 700; color: #1a1a1a; }
-.hd-sum  { font-size: 0.72rem; color: #9ca3af; }
-.hd-sum.over { color: #ef4444; }
+.hd-date {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #1a1a1a;
+}
+.hd-sum {
+  font-size: 0.72rem;
+  color: #9ca3af;
+}
+.hd-sum.over {
+  color: #ef4444;
+}
 
-.history-day-body { padding: 4px 14px 10px; }
+.history-day-body {
+  padding: 4px 14px 10px;
+}
 
 .hist-entry {
   display: flex;
@@ -130,12 +151,16 @@ function entriesForDate(date) {
   padding: 5px 0;
   border-bottom: 1px solid #f5f5f5;
 }
-.hist-entry:last-child { border-bottom: none; }
+.hist-entry:last-child {
+  border-bottom: none;
+}
 
 /* Slide transition */
 .slide-enter-active,
 .slide-leave-active {
-  transition: opacity 0.2s ease, transform 0.2s ease;
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
 }
 .slide-enter-from,
 .slide-leave-to {
